@@ -6,6 +6,10 @@ from .forms import ArticleForm, CommentForm
 from .models import Article
 
 
+def blog_template(request):
+    return render(request, 'articles/blog.html')
+
+
 def list_article(request):
     arts = Article.objects.all()
     context = {

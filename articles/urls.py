@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import list_article, formulaire, get_and_update, add_comment
+from .views import list_article, formulaire, get_and_update, add_comment, blog_template
 from .view_class import ArticleListView, ArticleCreateView, ArticleDetailView
 
 # app_name = 'articles'
@@ -8,6 +8,7 @@ from .view_class import ArticleListView, ArticleCreateView, ArticleDetailView
 urlpatterns = [
     path('', ArticleListView.as_view(), name='list-articles'),
     path('class/', ArticleListView.as_view(), name='list-articles-class'),
+    path('blog/', blog_template, name='blog-template'),
     path('ajout/', formulaire, name='form-articles'),
     path('ajout-class/', ArticleCreateView.as_view(), name='form-articles-class'),
     path('edit/<int:id>/', get_and_update, name='edit'),
